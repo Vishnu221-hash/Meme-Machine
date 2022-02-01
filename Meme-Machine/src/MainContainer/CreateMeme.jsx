@@ -56,6 +56,20 @@ class CreateMeme extends Component {
     });
   };
 
+  share = async() => {
+     let u = this.state.selectedImage.url;
+    let t = this.state.selectedImage.name;
+    window.open(
+      "http://www.facebook.com/sharer.php?u=" +
+        encodeURIComponent(u) +
+        "&t=" +
+        encodeURIComponent(t),
+      "sharer",
+      "toolbar=0,status=0,width=626,height=436"
+    ); 
+    return false;
+  };
+
   render() {
     return (
       <>
@@ -86,6 +100,7 @@ class CreateMeme extends Component {
               </button>
               <button onClick={this.clearText}> Clear Text </button>
               <button onClick={this.printMeme}> Print </button>
+              <button onClick={this.share}> Share on Facebook </button>
             </div>
           </div>
         </div>
